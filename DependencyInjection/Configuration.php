@@ -14,7 +14,7 @@
  * permissions and limitations under the License.
  */
 
-namespace PlatinumPixs\Aws\DependencyInjection;
+namespace Webfactory\Bundle\AwsSdk2Bundle\DependencyInjection;
 
 use \Symfony\Component\Config\Definition\ConfigurationInterface,
     \Symfony\Component\Config\Definition\Builder\TreeBuilder;
@@ -24,7 +24,7 @@ class Configuration implements ConfigurationInterface
     public function getConfigTreeBuilder()
     {
         $treeBuilder = new TreeBuilder();
-        $rootNode = $treeBuilder->root('platinum_pixs_aws');
+        $rootNode = $treeBuilder->root('webfactory_aws_sdk2');
 
         $rootNode
             ->useAttributeAsKey('name')

@@ -14,11 +14,11 @@
  * permissions and limitations under the License.
  */
 
-namespace PlatinumPixs\Aws;
+namespace Webfactory\Bundle\AwsSdk2Bundle;
 
 use \Symfony\Component\HttpKernel\Bundle\Bundle;
 
-class PlatinumPixsAwsBundle extends Bundle
+class WebfactoryAwsSdk2Bundle extends Bundle
 {
 
 }

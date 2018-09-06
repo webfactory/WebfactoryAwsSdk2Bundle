@@ -14,7 +14,7 @@
  * permissions and limitations under the License.
  */
 
-namespace PlatinumPixs\Aws\DependencyInjection;
+namespace Webfactory\Bundle\AwsSdk2Bundle\DependencyInjection;
 
 use \Symfony\Component\DependencyInjection\ContainerBuilder;
 use \Symfony\Component\HttpKernel\DependencyInjection\Extension;
@@ -22,28 +22,28 @@ use \Symfony\Component\DependencyInjection\Definition;
 use \Symfony\Component\Config\FileLocator;
 use \Symfony\Component\DependencyInjection\Loader\XmlFileLoader;
 
-class PlatinumPixsAwsExtension extends Extension
+class WebfactoryAwsSdk2Extension extends Extension
 {
     public function load(array $configs, ContainerBuilder $container)
     {
         $loader = new XmlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
-        $loader->load('platinum_pixs_aws.xml');
+        $loader->load('webfactory_aws_sdk2.xml');
 
         $configs = $this->processConfiguration(new Configuration(), $configs);
 
         $configs['default'] = array();
 
         foreach ($configs as $name => $config) {
-            $definition = new Definition('%platinum_pixs_aws.class%');
+            $definition = new Definition('%webfactory_aws_sdk2.class%');
 
-            $definition->setArguments(array($config))->addTag('platinum_pixs_aws');
+            $definition->setArguments(array($config))->addTag('webfactory_aws_sdk2');
 
-            $container->setDefinition('platinum_pixs_aws.'.$name, $definition);
+            $container->setDefinition('webfactory_aws_sdk2.'.$name, $definition);
         }
     }
 
     public function getAlias()
     {
-        return 'platinum_pixs_aws';
+        return 'webfactory_aws_sdk2';
     }
 }

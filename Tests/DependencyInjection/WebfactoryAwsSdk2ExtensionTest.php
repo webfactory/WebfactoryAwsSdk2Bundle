@@ -6,18 +6,17 @@
  * @link       http://www.platinumpixs.com
  */
 
-namespace PlatinumPixs\Aws\Tests\DependencyInjection;
+namespace Webfactory\Bundle\AwsSdk2Bundle\Tests\DependencyInjection;
 
-use \PlatinumPixs\Aws\DependencyInjection\PlatinumPixsAwsExtension,
-    \Symfony\Component\DependencyInjection\ContainerBuilder;
+use Guzzle\Service\Builder\ServiceBuilder;
+use Webfactory\Bundle\AwsSdk2Bundle\DependencyInjection\WebfactoryAwsSdk2Extension;
+use Symfony\Component\DependencyInjection\ContainerBuilder;
 
 /**
- * XXX
- *
  * @copyright  Copyright (c) 2010-2013, Platinum Pixs, LLC All rights reserved.
  * @link       http://www.platinumpixs.com
  */
-class PlatinumPixsAwsExtensionTest extends \PHPUnit_Framework_TestCase
+class WebfactoryAwsSdk2ExtensionTest extends \PHPUnit_Framework_TestCase
 {
     /**
      * @var \Symfony\Component\DependencyInjection\ContainerBuilder
@@ -25,14 +24,14 @@ class PlatinumPixsAwsExtensionTest extends \PHPUnit_Framework_TestCase
     private $container;
 
     /**
-     * @var \PlatinumPixs\Aws\DependencyInjection\PlatinumPixsAwsExtension
+     * @var WebfactoryAwsSdk2Extension
      */
     private $extension;
 
     public function setUp()
     {
         $this->container = new ContainerBuilder();
-        $this->extension = new PlatinumPixsAwsExtension();
+        $this->extension = new WebfactoryAwsSdk2Extension();
     }
 
     public function testTaggedService()
@@ -45,14 +44,14 @@ class PlatinumPixsAwsExtensionTest extends \PHPUnit_Framework_TestCase
         $this->extension->load(array(), $this->container);
         $this->extension->load(array($config), $this->container);
 
-        $this->assertEquals(2, count($this->container->findTaggedServiceIds('platinum_pixs_aws')));
+        $this->assertEquals(2, count($this->container->findTaggedServiceIds('webfactory_aws_sdk2')));
     }
 
     public function testDefaultSetup()
     {
         $this->extension->load(array(), $this->container);
 
-        $this->assertInstanceOf('Aws\Sdk', $this->container->get('platinum_pixs_aws.default'));
+        $this->assertInstanceOf(ServiceBuilder::class, $this->container->get('webfactory_aws_sdk2.default'));
     }
 
 
@@ -68,7 +67,7 @@ class PlatinumPixsAwsExtensionTest extends \PHPUnit_Framework_TestCase
 
         $this->extension->load(array($config), $this->container);
 
-        $this->assertInstanceOf('Aws\Sdk', $this->container->get('platinum_pixs_aws.standard'));
+        $this->assertInstanceOf(ServiceBuilder::class, $this->container->get('webfactory_aws_sdk2.standard'));
     }
 
 
@@ -82,7 +81,7 @@ class PlatinumPixsAwsExtensionTest extends \PHPUnit_Framework_TestCase
 
         $this->extension->load(array($config), $this->container);
 
-        $this->assertInstanceOf('Aws\Sdk', $this->container->get('platinum_pixs_aws.standard'));
+        $this->assertInstanceOf(ServiceBuilder::class, $this->container->get('webfactory_aws_sdk2.standard'));
     }
 
 }

@@ -1,13 +1,13 @@
 {
-    "name": "platinumpixs/aws-symfony2-bundle",
-    "homepage": "https://github.com/platinumpixs/aws-symfony2-bundle",
-    "description": "A simple Symfony 2 bundle for including the AWS SDK for PHP.",
+    "name": "webfactory/aws-sdk2-bundle",
+    "homepage": "https://github.com/webfactory/WebfactoryAwsSdk2Bundle",
+    "description": "A simple Symfony bundle for including the AWS SDK v2.x",
     "keywords": [
         "symfony",
-        "symfony 2",
         "aws",
         "amazon",
         "sdk",
+        "sdk v2",
         "s3",
         "ec2",
         "dynamodb"
@@ -18,19 +18,26 @@
         {
             "name": "Platinum Pixs",
             "homepage": "http://www.platinumpixs.com"
+        },
+        {
+            "name": "webfactory GmbH",
+            "homepage": "https://www.webfactory.de"
         }
     ],
     "require": {
         "php": ">=5.5",
-        "aws/aws-sdk-php": "3.*",
-        "symfony/symfony": "2.*"
+        "aws/aws-sdk-php": "2.*",
+        "symfony/config": "~2.3|~3.0|~4.0",
+        "symfony/dependency-injection": "~2.3|~3.0|~4.0",
+        "symfony/http-kernel": "~2.3|~3.0|~4.0"
     },
-    "minimum-stability": "dev",
     "autoload": {
-        "psr-0": { "PlatinumPixs\\Aws": "" }
+        "psr-4": { "Webfactory\\Bundle\\AwsSdk2Bundle\\": "" }
     },
-    "target-dir": "PlatinumPixs/Aws",
     "require-dev": {
-        "phpunit/phpunit": "4.1.*"
+        "phpunit/phpunit": "^4.8.35|^5.4.0|^6.0.0"
+    },
+    "replace": {
+        "platinumpixs/aws-symfony2-bundle": "<= 1.2.0"
     }
 }
