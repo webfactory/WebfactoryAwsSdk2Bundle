@@ -36,8 +36,5 @@
     },
     "require-dev": {
         "phpunit/phpunit": "^4.8.35|^5.4.0|^6.0.0"
-    },
-    "replace": {
-        "platinumpixs/aws-symfony2-bundle": "<= 1.2.0"
     }
 }
