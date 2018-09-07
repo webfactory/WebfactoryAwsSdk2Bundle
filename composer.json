@@ -1,7 +1,7 @@
 {
     "name": "webfactory/aws-sdk2-bundle",
     "homepage": "https://github.com/webfactory/WebfactoryAwsSdk2Bundle",
-    "description": "A simple Symfony bundle for including the AWS SDK v2.x",
+    "description": "A simple Symfony (2.x, 3.x and beyond) bundle for including the AWS SDK v2.x",
     "keywords": [
         "symfony",
         "aws",
