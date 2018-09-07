@@ -1,7 +1,12 @@
 # WebfactoryAwsSdk2Bundle
 
-Provides a simple Symfony Bundle to Wrap the AWS PHP SDK v2.x - https://github.com/aws/aws-sdk-php.
-Forked off the original https://github.com/platinumpixs/aws-symfony2-bundle.
+Provides a simple Symfony Bundle to wrap the [AWS PHP SDK v2.x](https://github.com/aws/aws-sdk-php).
+
+This is a fork of the original [platinumpixs/aws-symfony2-bundle](https://github.com/platinumpixs/aws-symfony2-bundle)
+that we created to also allow the use of Symfony 3.x and above. Additionally, we've tried to limit
+Composer dependencies to something more specific than using the whole `symfony/symfony` stack.
+
+## Usage
 
 The code calls \Aws\Common\Aws::factory(), which setups the ability to call all the services provided by the library.
 
