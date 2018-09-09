@@ -35,6 +35,6 @@
         "psr-4": { "Webfactory\\Bundle\\AwsSdk2Bundle\\": "" }
     },
     "require-dev": {
-        "phpunit/phpunit": "^4.8.35|^5.4.0|^6.0.0"
+        "phpunit/phpunit": "^4.8.35"
     }
 }
