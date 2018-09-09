@@ -1,5 +1,7 @@
 # WebfactoryAwsSdk2Bundle
 
+[![Build Status](https://travis-ci.org/webfactory/WebfactoryAwsSdk2Bundle.svg?branch=master)](https://travis-ci.org/webfactory/WebfactoryAwsSdk2Bundle)
+
 Provides a simple Symfony Bundle to wrap the [AWS PHP SDK v2.x](https://github.com/aws/aws-sdk-php).
 
 This is a fork of the original [platinumpixs/aws-symfony2-bundle](https://github.com/platinumpixs/aws-symfony2-bundle)
