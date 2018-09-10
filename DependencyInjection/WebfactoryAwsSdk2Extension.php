@@ -16,11 +16,11 @@
 
 namespace Webfactory\Bundle\AwsSdk2Bundle\DependencyInjection;
 
-use \Symfony\Component\DependencyInjection\ContainerBuilder;
-use \Symfony\Component\HttpKernel\DependencyInjection\Extension;
-use \Symfony\Component\DependencyInjection\Definition;
-use \Symfony\Component\Config\FileLocator;
-use \Symfony\Component\DependencyInjection\Loader\XmlFileLoader;
+use Symfony\Component\Config\FileLocator;
+use Symfony\Component\DependencyInjection\ContainerBuilder;
+use Symfony\Component\DependencyInjection\Definition;
+use Symfony\Component\DependencyInjection\Loader\XmlFileLoader;
+use Symfony\Component\HttpKernel\DependencyInjection\Extension;
 
 class WebfactoryAwsSdk2Extension extends Extension
 {
@@ -35,6 +35,15 @@ class WebfactoryAwsSdk2Extension extends Extension
 
         foreach ($configs as $name => $config) {
             $definition = new Definition('%webfactory_aws_sdk2.class%');
+
+            // Handle Symfony >= 2.7
+            if (method_exists($definition, 'setFactory')) {
+                $definition->setFactory(['%webfactory_aws_sdk2.class%', 'factory']);
+            } else {
+                $definition
+                    ->setFactoryClass('%webfactory_aws_sdk2.class%')
+                    ->setFactoryMethod('factory');
+            }
 
             $definition->setArguments(array($config))->addTag('webfactory_aws_sdk2');
 
